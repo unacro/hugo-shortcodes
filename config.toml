@@ -6,6 +6,7 @@
   replacements = ''
   vendorClosest = false
   workspace = 'off'
+  
   [module.hugoVersion]
     extended = false
     max = '0.131.0'
