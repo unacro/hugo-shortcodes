@@ -1,0 +1,13 @@
+<ul>
+    {{ range $paramKey, $paramValue := .Site.Params }}
+    {{ if reflect.IsMap $paramValue }}
+    <ul>
+        {{ range $itemKey, $itemValue := $paramValue }}
+        <li>{{ $itemKey }}: {{ $itemValue }}</li>
+        {{ end }}
+    </ul>
+    {{ else }}
+    <li>{{ $paramKey }}: {{ $paramValue }}</li>
+    {{ end }}
+    {{ end }}
+</ul>
