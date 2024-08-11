@@ -1,8 +1,0 @@
-{{ $data := index .Site.Data.games "buckshot-roulette" }}
-{{ if gt (len $data) 0 }}
-<ul>
-        {{ range $data }}
-        <li>{{ .item }}: {{ .usage }}</li>
-        {{ end }}
-</ul>
-{{ end }}
