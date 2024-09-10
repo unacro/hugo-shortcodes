@@ -1,0 +1,17 @@
+{{- $params := $.Page.Params -}}
+{{- if eq (lower (.Get 0)) "site" -}}
+	{{- $params = $.Site.Params -}}
+{{- end -}}
+<ul>
+	{{- range $paramKey, $paramValue := $params -}}
+		{{- if reflect.IsMap $paramValue -}}
+			<ul>
+				{{- range $itemKey, $itemValue := $paramValue -}}
+					<li><code>{{- $itemKey -}}</code>: <code>{{ $itemValue -}}</code></li>
+				{{- end -}}
+			</ul>
+		{{- else -}}
+			<li><code>{{- $paramKey -}}</code>: <code>{{ $paramValue -}}</code></li>
+		{{- end -}}
+	{{- end -}}
+</ul>

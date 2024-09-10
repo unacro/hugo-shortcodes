@@ -1,9 +1,9 @@
 {{- $appId := .Get 0 -}}
 {{- if findRE `\D` $appId 1 -}}
-{{- errorf "The %q shortcode requires a 'appId' number argument. See %s" .Name .Position -}}
+	{{- errorf "The %q shortcode requires a 'appId' number argument. See %s" .Name .Position -}}
 {{- else -}}
-{{- $sourceUrl := index (index (findRESubmatch `^https?://([^/]+)` $.Site.BaseURL) 0) 1 -}}
-<iframe class="mt-2 mb-2" type="text/html" width="646" height="190"
-	src="https://store.steampowered.com/widget/{{- $appId -}}/{{- if len .Params | eq 2 -}}{{- .Get 1 -}}/{{- end -}}?utm_source={{- $sourceUrl -}}"
-	frameborder="0"></iframe>
+	{{- $sourceUrl := index (index (findRESubmatch `^https?://([^/]+)` $.Site.BaseURL) 0) 1 -}}
+	<iframe class="mt-2 mb-2" type="text/html" width="646" height="190"
+		src="https://store.steampowered.com/widget/{{- $appId -}}/{{- if len .Params | eq 2 -}}
+		{{- .Get 1 -}}/{{- end -}}?utm_source={{- $sourceUrl -}}" frameborder="0"></iframe>
 {{- end -}}
